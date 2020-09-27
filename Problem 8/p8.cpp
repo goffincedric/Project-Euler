@@ -97,11 +97,11 @@ int main() {
     factorString.resize(factorString.length() - 2);
     printf("Solution problem 8: %ld. Factors: %s\n", largestProduct, factorString.c_str());
 
-    // Some computation here
+    // Print benchmark
     auto end = std::chrono::system_clock::now();
 
     std::chrono::duration<double> elapsed_seconds = end - start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+    //std::time_t end_time = std::chrono::system_clock::to_time_t(end);
 
-    std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    std::cout << "\n\nelapsed time: " << elapsed_seconds.count() << "s\n";
 }
