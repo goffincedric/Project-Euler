@@ -194,7 +194,7 @@ int main() {
     // Traverse matrix and find largest product
     long largestProduct = traverseMatrix(matrix, positions);
 
-    // Prinf solution and positions
+    // Print solution and positions
     printf("Solution problem 11: %ld\nPositions:\n", largestProduct);
     for (auto position : positions)
         printf("\t(%d, %d): %d\n", position[0], position[1], matrix[position[0]][position[1]]);
