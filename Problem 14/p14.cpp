@@ -77,7 +77,6 @@ int main() {
     std::printf("Solution problem 14: Number %ld produced the largest chain with %ld numbers\n", largestNumber,
                 largestChain);
 
-
     // Print benchmark
     auto end = std::chrono::system_clock::now();
     std::chrono::duration<double> elapsed_seconds = end - start;
