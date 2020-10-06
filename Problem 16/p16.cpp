@@ -76,6 +76,9 @@ long multiplySmall(long number, int times) {
 }
 
 int main() {
+    // Start benchmark
+    auto start = std::chrono::system_clock::now();
+
     // 2^1000 = 2*2*2*2*2*2*......*2
     // Of binary operator (1000* bitwise left <<)
     // Initialize variables
@@ -112,4 +115,11 @@ int main() {
 
     // Print solution
     printf("Solution problem 16: %ld\n", sum);
+
+    // Print benchmark
+    auto end = std::chrono::system_clock::now();
+    std::chrono::duration<double> elapsed_seconds = end - start;
+    //std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+
+    std::cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
 }
