@@ -21,4 +21,6 @@ add_executable(Project_Euler_015 "Problem 15/p15.cpp")
 add_executable(Project_Euler_016 "Problem 16/p16.cpp")
 add_executable(Project_Euler_017 "Problem 17/p17.cpp")
 add_executable(Project_Euler_018 "Problem 18/p18.cpp")
+add_executable(Project_Euler_019 "Problem 19/p19.cpp")
+
 add_executable(Project_Euler_067 "Problem 67/p67.cpp")
