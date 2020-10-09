@@ -65,33 +65,35 @@ int main() {
             count = 0,
             daysInMonth = MONTH_DATA.at(month).second + (month == 2 && isLeapYear(year) ? 1 : 0);
 
-    // elapsed time: ~0.000184s
-    // in 5271 loops and 1512 condition checks
-    //while (year < 2001) {
-    //    // Check if sunday needs to be counted
-    //    if (year > 1900 && day == 1)
-    //        count++;
-//
-    //    // Set day to next sunday
-    //    day += 7;
-//
-    //    // Check if days are above maximum of month
-    //    if (day > daysInMonth) {
-    //        day %= daysInMonth;
-//
-    //        // Set month to next month
-    //        month++;
-//
-    //        // Check if months > maximum of year
-    //        if (month == 13) {
-    //            month = 1;
-    //            year++;
-    //        }
-//
-    //        // Set new daysInMonth
-    //        daysInMonth = MONTH_DATA.at(month).second + (month == 2 && isLeapYear(year) ? 1 : 0);
-    //    }
-    //}
+    /*
+     *    // elapsed time: ~0.000184s
+     *    // in 5271 loops and 1512 condition checks
+     *    //while (year < 2001) {
+     *    //    // Check if sunday needs to be counted
+     *    //    if (year > 1900 && day == 1)
+     *    //        count++;
+     *    //
+     *    //    // Set day to next sunday
+     *    //    day += 7;
+     *    //
+     *    //    // Check if days are above maximum of month
+     *    //    if (day > daysInMonth) {
+     *    //        day %= daysInMonth;
+     *    //
+     *    //        // Set month to next month
+     *    //        month++;
+     *    //
+     *    //        // Check if months > maximum of year
+     *    //        if (month == 13) {
+     *    //            month = 1;
+     *    //            year++;
+     *    //        }
+     *    //
+     *    //        // Set new daysInMonth
+     *    //        daysInMonth = MONTH_DATA.at(month).second + (month == 2 && isLeapYear(year) ? 1 : 0);
+     *    //    }
+     *    //}
+     */
 
     // elapsed time: 0.000184s
     // in 1213 loops and 462 condition checks

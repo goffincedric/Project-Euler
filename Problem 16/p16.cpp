@@ -5,6 +5,7 @@
 #include <iostream>
 #include <deque>
 #include <numeric>
+#include "../utils/math.h"
 
 using namespace std;
 
@@ -33,38 +34,6 @@ void printSteps(int base, int exponent, int exponentDivider) {
 
     // Print result according to pow function
     printf(" (according to built-in c++ pow function)\n = %s\n", to_string(pow(base, exponent)).c_str());
-}
-
-void multiplyLarge(deque<long> &numbers, long factor) {
-    // Multiply each number by the factor and carry extra to next number
-    for (auto &num: numbers) {
-        // Multiply number by factor
-        num *= factor;
-    }
-
-    // Check if numbers need to be carried
-    int index = numbers.size() - 1,
-            offset = 0;
-    long carry = 0;
-    while (numbers[index - offset] > 9) {
-        // Check if number needs to be added to front of numbers queue
-        if (index - offset - 1 < 0) {
-            numbers.push_front(0);
-            index++;
-        }
-
-        // Set carry int
-        carry = (long) trunc(numbers[index - offset] / 10);
-
-        // Set current number
-        numbers[index - offset] = numbers[index - offset] % 10;
-
-        // increment offset by one
-        offset++;
-
-        // Add carry to next number in list
-        numbers[index - offset] += carry;
-    }
 }
 
 long multiplySmall(long number, int times) {
