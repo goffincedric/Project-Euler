@@ -6,27 +6,19 @@
 #include <string>
 #include "sort.h"
 
-//template<typename T>
-void bubbleSort(std::vector<std::string> &vector, bool ascending) {
-    // Initialize variables
-    std::string temp;
+// String compare
+int compare(const std::string &s1, const std::string &s2) {
+    return s1.compare(s2);
+}
 
-    // Loop over all strings
-    for (int i = 0; i < vector.size(); ++i) {
-        // Loop over all vector entries after current entry
-        for (int j = i + 1; j < vector.size(); ++j) {
-            // Check if current entry is smaller/larger than current next entry
-            if (ascending && vector[i].compare(vector[j]) >= 1) {
-                // Switch larger and smaller entry to ascending order
-                temp = vector[i];
-                vector[i] = vector[j];
-                vector[j] = temp;
-            } else if (!ascending && vector[i].compare(vector[j]) <= -1) {
-                // Switch larger and smaller entry to descending order
-                temp = vector[j];
-                vector[j] = vector[i];
-                vector[i] = temp;
-            }
-        }
+// Type-generic compare
+template<typename T>
+int compare(const T &s1, const T &s2) {
+    if (s1 > s2) {
+        return 1;
+    } else if (s1 == s2) {
+        return 0;
+    } else {
+        return -1;
     }
 }
