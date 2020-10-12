@@ -5,12 +5,36 @@
 #include "math.h"
 
 #include <deque>
+#include <vector>
 
-using namespace std;
+// Calculate factorial
+int factorial(int number) {
+    int factorial = 1;
+    for (int i = number; i > 1; --i)
+        factorial *= i;
 
+    return factorial;
+}
+
+// Calculates all equal divisors of given number
+std::vector<int> getEqualDivisors(int number) {
+    // Initialize Variables
+    std::vector<int> equalDivisors = {1}; // 1 is always equal divisor
+    int max = ceil(number / 2);
+
+    // Loop over all numbers => ]1, max]
+    for (int i = 2; i <= max; ++i) {
+        // Check if is equal divisor
+        if (number % i == 0)
+            equalDivisors.push_back(i);
+    }
+
+    // Return found equal divisors
+    return equalDivisors;
+}
 
 // Function used to multiply large numbers
-void multiplyLarge(deque<long> &numbers, long factor) {
+void multiplyLarge(std::deque<long> &numbers, long factor) {
     // Multiply each number by the factor and carry extra to next number
     for (auto &num: numbers) {
         // Multiply number by factor
