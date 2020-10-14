@@ -20,41 +20,6 @@
  * What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
  */
 
-int main() {
-    // Initialize variables
-    int nthPermutation = 1000000, currentPermutation = nthPermutation - 1;
-    std::vector<int> digits(10), number;
-
-    // Populate digits vector
-    std::iota(digits.begin(), digits.end(), 0);
-
-    // Move digits from digits vector to number vector until 1 digit is left
-    int currentFactorial, currentIndex;
-    while (digits.size() > 1) {
-        // Calculate the largest possible factorial <= currentPermutation
-        currentFactorial = INT_MAX;
-        for (int i = digits.size(); i > 0 && currentFactorial > currentPermutation; --i)
-            currentFactorial = factorial(i);
-
-
-        // Get index to of digit to push to number
-        currentIndex = (int) trunc(currentPermutation / currentFactorial);
-
-        // Add digit to number vector and delete from digits vector
-        number.push_back(digits[currentIndex]);
-        digits.erase(digits.begin() + currentIndex);
-
-        // Set new currentPermutation
-        currentPermutation %= currentFactorial;
-    }
-    // Add last digit to number vector
-    number.push_back(digits[0]);
-
-    // Print number
-    std::cout << ("Solution problem 24: ");
-    for (int &num : number) std::cout << num;
-    std::cout << std::endl;
-}
 
 /*
  * Explanation:
@@ -91,3 +56,39 @@ int main() {
  *      5  adbc       11  bdac       17  cdab       23  dcab
  *      6  adcb       12  bdca       18  cdba       24  dcba
  */
+
+int main() {
+    // Initialize variables
+    int nthPermutation = 1000000, currentPermutation = nthPermutation - 1;
+    std::vector<int> digits(10), number;
+
+    // Populate digits vector
+    std::iota(digits.begin(), digits.end(), 0);
+
+    // Move digits from digits vector to number vector until 1 digit is left
+    int currentFactorial, currentIndex;
+    while (digits.size() > 1) {
+        // Calculate the largest possible factorial <= currentPermutation
+        currentFactorial = INT_MAX;
+        for (int i = digits.size(); i > 0 && currentFactorial > currentPermutation; --i)
+            currentFactorial = factorial(i);
+
+
+        // Get index to of digit to push to number
+        currentIndex = (int) trunc(currentPermutation / currentFactorial);
+
+        // Add digit to number vector and delete from digits vector
+        number.push_back(digits[currentIndex]);
+        digits.erase(digits.begin() + currentIndex);
+
+        // Set new currentPermutation
+        currentPermutation %= currentFactorial;
+    }
+    // Add last digit to number vector
+    number.push_back(digits[0]);
+
+    // Print number
+    std::cout << ("Solution problem 24: ");
+    for (int &num : number) std::cout << num;
+    std::cout << std::endl;
+}
