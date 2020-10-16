@@ -63,6 +63,34 @@ int factorial(int number) {
     return factorial;
 }
 
+// Function that finds primes using Sieve of Eratosthenes
+std::vector<long> findPrimes(int max) {
+    // Initialize variables
+    std::vector<bool> sieve(max, true);
+    std::vector<long> primes;
+    sieve[0] = false; // Set 1 as false (not a prime)
+
+    // Sieve of Eratosthenes
+    int prime;
+    for (long i = 1; i < sieve.size(); ++i) {
+        if (!sieve[i]) {
+            continue;
+        }
+
+        // Calculate number and add to primes
+        prime = i + 1;
+        primes.push_back(prime);
+
+        // Set all multiplications of prime in sieve to false
+        for (long j = (long) pow(prime, 2) - 1; j < sieve.size(); j += prime) {
+            sieve[j] = false;
+        }
+    }
+
+    // Return primes
+    return primes;
+}
+
 // Calculates all equal divisors of given number
 std::vector<int> getEqualDivisors(int number) {
     // Initialize Variables
@@ -78,6 +106,48 @@ std::vector<int> getEqualDivisors(int number) {
 
     // Return found equal divisors
     return equalDivisors;
+}
+
+// Calculate a fraction with defined decimal fraction precision
+std::pair<std::vector<long>, std::vector<long>> calculateFraction(long numerator, long denominator, long precision) {
+    // Initialize variables
+    long currentPrecision = 0;
+    std::vector<long> integralPart, fractionPart;
+
+    // Convert numerator to vector of numbers
+    std::vector<long> numeratorDigits;
+    for (auto &digit :  std::to_string(numerator)) numeratorDigits.push_back(digit - '0');
+
+    // Loop over digits in numerator
+    long wholeNumber, currentNumerator = 0;
+    currentPrecision = -numeratorDigits.size();
+    for (int i = 0; i < numeratorDigits.size(); ++i) {
+        // Set currentNumerator
+        currentNumerator = currentNumerator * 10 + numeratorDigits[i];
+
+        // Calculate integral/fraction part
+        wholeNumber = currentNumerator / denominator;
+        if (currentPrecision >= 0) fractionPart.push_back(wholeNumber);
+        else integralPart.push_back(wholeNumber);
+
+        // Calculate next currentNumerator
+        wholeNumber *= denominator;
+        currentNumerator -= wholeNumber;
+
+        // Increment currentPrecision by one
+        ++currentPrecision;
+
+        // Precision check
+        if (currentPrecision == precision) break;
+        // Check if zero needs to be added to back of numeratorDigits
+        if (currentPrecision >= 0) numeratorDigits.push_back(0);
+    }
+
+    // Remove leading zeroes in integralPart
+    while (integralPart[0] == 0 && integralPart.size() > 1) integralPart.erase(integralPart.begin());
+
+    // Return integral and fraction parts of decimal in pair
+    return std::make_pair(integralPart, fractionPart);
 }
 
 // Function used to add together large numbers

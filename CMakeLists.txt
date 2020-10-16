@@ -28,5 +28,6 @@ add_executable(Project_Euler_022 "Problem 22/p22.cpp" "utils/files.cpp" "utils/s
 add_executable(Project_Euler_023 "Problem 23/p23.cpp" "utils/math.cpp")
 add_executable(Project_Euler_024 "Problem 24/p24.cpp" "utils/math.cpp")
 add_executable(Project_Euler_025 "Problem 25/p25.cpp" "utils/math.cpp")
+add_executable(Project_Euler_026 "Problem 26/p26.cpp" "utils/math.cpp")
 
 add_executable(Project_Euler_067 "Problem 67/p67.cpp")

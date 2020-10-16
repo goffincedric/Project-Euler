@@ -6,6 +6,7 @@
 #include <cmath>
 #include <vector>
 #include <numeric>
+#include "../utils/math.h"
 
 using namespace std;
 
@@ -25,25 +26,13 @@ long sum(vector<long> &numbers) {
 }
 
 int main() {
-    vector<bool> sieve(2000000, true);
-    sieve[0] = false; // Set 1 as false (not a prime)
+    // Initialize variables
+    long max = 2000000;
     vector<long> primes;
 
-    // Sieve of Eratosthenes
-    for (long i = 1; i < sieve.size(); ++i) {
-        if (!sieve[i]) {
-            continue;
-        }
+    // Find primes
+    primes = findPrimes(max);
 
-        // Calculate number and add to primes
-        int prime = i + 1;
-        primes.push_back(prime);
-
-        // Set all multiplications of prime in sieve to false
-        for (long j = (long) pow(prime, 2) - 1; j < sieve.size(); j += prime) {
-            sieve[j] = false;
-        }
-    }
-
+    // Print solution
     printf("Solution problem 10: %ld", sum(primes));
 }

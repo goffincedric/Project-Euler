@@ -33,6 +33,12 @@
  * What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
  */
 
+/*
+ * TODO Improve:
+ *  Fibonacci terms converge to (n)*Phi=(n+1),
+ *  where Phi is the Golden Ratio (1+sqrt5)/2.
+ */
+
 int main() {
     // Start benchmark
     auto start = std::chrono::system_clock::now();
