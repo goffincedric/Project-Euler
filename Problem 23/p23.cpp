@@ -32,10 +32,10 @@
 
 bool isAbundant(int number) {
     // Initialize Variables
-    std::vector<int> equalDivisors = getEqualDivisors(number);
+    std::vector<long> equalDivisors = getEqualDivisors(number);
 
     // Check if sum of divisors is greater than number
-    return std::accumulate(equalDivisors.begin(), equalDivisors.end(), 0) > number;
+    return std::accumulate(equalDivisors.begin(), equalDivisors.end(), 0l) > number;
 }
 
 int main() {
