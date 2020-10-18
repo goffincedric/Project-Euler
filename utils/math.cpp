@@ -63,6 +63,26 @@ int factorial(int number) {
     return factorial;
 }
 
+// Function checks if the argument is a prime
+bool isPrime(long number) {
+    if (number <= 1) return false;
+    if (number == 2 || number == 3) return true;
+    if (number % 2 == 0) {
+        return false;
+    }
+
+    int max = (int) ceil(sqrt(number));
+    if (max < 3) max = 3;
+
+    for (int i = 3; i <= max; i += 2) {
+        if (number % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 // Function that finds primes using Sieve of Eratosthenes
 std::vector<long> findPrimes(int max) {
     // Initialize variables
@@ -92,13 +112,13 @@ std::vector<long> findPrimes(int max) {
 }
 
 // Calculates all equal divisors of given number
-std::vector<int> getEqualDivisors(int number) {
+std::vector<long> getEqualDivisors(long number) {
     // Initialize Variables
-    std::vector<int> equalDivisors = {1}; // 1 is always equal divisor
-    int max = ceil(number / 2);
+    std::vector<long> equalDivisors = {1}; // 1 is always equal divisor
+    long max = ceil(number / 2);
 
     // Loop over all numbers => ]1, max]
-    for (int i = 2; i <= max; ++i) {
+    for (long i = 2; i <= max; ++i) {
         // Check if is equal divisor
         if (number % i == 0)
             equalDivisors.push_back(i);

@@ -44,10 +44,6 @@ int checkRepeatingDigitGroups(std::vector<long> fractionalPart) {
         // Increment groupSize by one
         ++groupSize;
 
-        if (groupSize == 166) {
-
-        }
-
         // Set first and second part of fractional part
         first = std::vector<long>(fractionalPart.begin(), fractionalPart.begin() + groupSize);
         second = std::vector<long>(fractionalPart.begin() + groupSize, fractionalPart.begin() + groupSize * 2);

@@ -4,6 +4,7 @@
 
 #include <list>
 #include <iostream>
+#include "../utils/math.h"
 
 using namespace std;
 
@@ -13,18 +14,6 @@ using namespace std;
  * The prime factors of 13195 are 5, 7, 13 and 29.
  * What is the largest prime factor of the number 600851475143?
  */
-
-bool isPrime(long number) {
-    if (number == 2) {
-        return true;
-    }
-
-    long denominator = 3L;
-    while (number % denominator > 0 && denominator < number){
-        denominator += 2;
-    }
-    return denominator == number;
-}
 
 int main() {
     long result = 600851475143L;

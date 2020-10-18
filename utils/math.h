@@ -14,9 +14,10 @@ const long MAX_MULTIPLICATION_NUMBER = LONG_MAX / 10l;
 
 int factorial(int number);
 
+bool isPrime(long number);
 std::vector<long> findPrimes(int max);
 
-std::vector<int> getEqualDivisors(int number);
+std::vector<long> getEqualDivisors(long number);
 std::pair<std::vector<long>, std::vector<long>> calculateFraction(long numerator, long denominator, long precision = 100);
 
 void addLarge(std::deque<long> &number, long addend);
