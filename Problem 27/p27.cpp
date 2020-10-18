@@ -11,7 +11,7 @@
 #include "../utils/math.h"
 
 /*
- *Problem 27:
+ * Problem 27:
  *
  * Euler discovered the remarkable quadratic formula:
  *
